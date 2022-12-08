@@ -49,6 +49,28 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('participants.index') }}">Participantes</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('categories.index') }}">Categorias</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('games.index') }}">Juegos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('inscriptionsgrs.index') }}">Inscripcion Grupal</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('inscriptionsins.index') }}">Inscripcion Individual</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('modes.index') }}">Modos</a>
+                            </li>
+                            <li class="nav-item">
+                                <a  class="nav-link" href="{{ route('teams.index') }}">Equipos</a>
+                            </li>
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
