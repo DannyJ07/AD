@@ -40,6 +40,18 @@ foreach ($juegos as $juego) {
     ->orderBy('inscriptionsins.id', 'desc')
     ->get();
 
+    $countInscriptionsIndi = array();
+
+    foreach($juegosI as $juego){
+        $count = 0;
+        foreach($inscriptionsins as $inscriptionsin){
+            if($inscriptionsin->id_juego == $juego->id){
+                $count++;
+            }
+        }
+        array_push($countInscriptionsIndi, $count);
+    }
+
     $inscriptionsgrs = \DB::table('inscriptionsgrs')
     ->select('inscriptionsgrs.*')
     ->orderBy('inscriptionsgrs.id', 'desc')
@@ -138,7 +150,7 @@ foreach ($juegos as $juego) {
         <script type="text/javascript">
 
   var labels =  {{ Js::from($labels) }};
-  var inscripciones_in =  {{ Js::from($inscriptionsins) }};
+  var inscripciones_in =  {{ Js::from($countInscriptionsIndi) }};
 
   const data = {
     labels: labels,
@@ -151,7 +163,7 @@ foreach ($juegos as $juego) {
   };
 
   const config = {
-    type: 'line',
+    type: 'bar',
     data: data,
     options: {}
   };
