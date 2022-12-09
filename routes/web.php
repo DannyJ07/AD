@@ -19,7 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash',function () {
+    return view('dash.index');
+    
+})->name('dash');
+
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('participants', App\Http\Controllers\ParticipantController::class);
 Route::resource('games', App\Http\Controllers\GameController::class);
 Route::resource('teams', App\Http\Controllers\TeamController::class);
@@ -28,3 +33,7 @@ Route::resource('modes', App\Http\Controllers\ModeController::class);
 Route::resource('inscriptionsins', App\Http\Controllers\InscriptionsgrController::class);
 Route::resource('inscriptionsgrs', App\Http\Controllers\InscriptionsinController::class);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
