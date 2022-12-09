@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('inscriptionsgr', function (Blueprint $table) {
+        Schema::create('inscriptionsgrs', function (Blueprint $table) {
             $table->id();
             $table->date('fecha');
             $table->string('tipo_pag');
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inscriptionsgr');
+        Schema::dropIfExists('inscriptionsgrs');
     }
 };
