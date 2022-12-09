@@ -342,29 +342,29 @@ return [
         ],
         [
             'text' => 'Categorias',
-            'url'  => 'admin/settings',
+            'url'  => '/categories',
             'icon' => 'fas fa-fw fa-lock',
         ],
 
         [
             'text'       => 'Equipos',
             'icon_color' => 'red',
-            'url'        => '#',
+            'url'        => '/teams',
         ],
         [
             'text'       => 'Modos',
             'icon_color' => 'yellow',
-            'url'        => '#',
+            'url'        => '/modes',
         ],
         [
             'text'       => 'Inscripciones Grupales',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url'        => '/inscriptionsgrs',
         ],
         [
             'text'       => 'Inscripciones Individuales',
             'icon_color' => 'cyan',
-            'url'        => '#',
+            'url'        => '/inscriptionsins',
         ],
     ],
 

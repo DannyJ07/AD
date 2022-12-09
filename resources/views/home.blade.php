@@ -19,23 +19,38 @@ $categories = \DB::table('categories')
 ->orderBy('categories.id', 'desc')
 ->get();
 
-//LLenar arreglo con los nombres del los juegos para el grafico
-$labels = array();
+$juegosI = array();
+$juegosG = array();
 foreach ($juegos as $juego) {
-    array_push($labels, $juego->nombre);
-}
-// Obtener la longitud de la colección
-?>
+        if ($juego->id_categoria == 2) {
+            array_push($juegosI, $juego);
+        }else{
+            array_push($juegosG, $juego);
+        }
+    }
 
-$inscriptionsins = \DB::table('inscriptionsins')
-->select('inscriptionsins.*')
-->orderBy('inscriptionsins.id', 'desc')
-->get();
+    //LLenar arreglo con los nombres del los juegos para el grafico
+    $labels = array();
+    foreach ($juegosI as $juego) {
+        array_push($labels, $juego->nombre);
+    }
 
-$inscriptionsgrs = \DB::table('inscriptionsgrs')
-->select('inscriptionsgrs.*')
-->orderBy('inscriptionsgrs.id', 'desc')
-->get();
+    $inscriptionsins = \DB::table('inscriptionsins')
+    ->select('inscriptionsins.*')
+    ->orderBy('inscriptionsins.id', 'desc')
+    ->get();
+
+    $inscriptionsgrs = \DB::table('inscriptionsgrs')
+    ->select('inscriptionsgrs.*')
+    ->orderBy('inscriptionsgrs.id', 'desc')
+    ->get();
+    // Obtener la longitud de la colección
+
+    // Obtener juegos con inscripciones individuales y grupales
+
+    ?>
+
+
 
 
 
@@ -114,7 +129,12 @@ $inscriptionsgrs = \DB::table('inscriptionsgrs')
                 </tbody>
             </table>
         </div>
+        <div class="col-6 mt-4">
+        <h1 class="text-center fs-5">Inscripciones Individuales</h1>
+        <canvas id="myChart" height="100px"></canvas>
         </div>
+        </div>
+
         <script type="text/javascript">
 
   var labels =  {{ Js::from($labels) }};
@@ -126,7 +146,7 @@ $inscriptionsgrs = \DB::table('inscriptionsgrs')
       label: 'My First dataset',
       backgroundColor: 'rgb(255, 99, 132)',
       borderColor: 'rgb(255, 99, 132)',
-      data: users,
+      data: inscripciones_in,
     }]
   };
 
