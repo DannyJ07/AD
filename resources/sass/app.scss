@@ -6,3 +6,35 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+.logo {
+    width: 50px!important;
+    margin: 0;
+}
+
+.opcionesNav a{
+    text-decoration-line: underline!important;
+    text-decoration-style:solid !important;
+    text-decoration-color: #fff !important;
+    line-height: 20px !important;
+}
+
+.barra {
+    background-color: #312e2e!important;
+    padding: 2px!important;
+    margin: 0!important;
+    width: 100%;
+    a {
+        color: #fff!important;
+    }
+}
+
+.slider img{
+    height: 450px !important;
+    object-fit: fill !important;
+}
+.plataform {
+    background-color: #312e2e!important;
+    color: #fff!important;
+    border-radius: 10px !important;
+    margin: 0 auto !important;
+}

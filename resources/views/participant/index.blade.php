@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     Participant
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombre</th>
 										<th>Apellido</th>
 										<th>Cedula</th>
@@ -50,7 +50,7 @@
                                     @foreach ($participants as $participant)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $participant->nombre }}</td>
 											<td>{{ $participant->apellido }}</td>
 											<td>{{ $participant->cedula }}</td>

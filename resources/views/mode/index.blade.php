@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     Mode
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Tipo</th>
 										<th>Id Juego</th>
 
@@ -46,7 +46,7 @@
                                     @foreach ($modes as $mode)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $mode->tipo }}</td>
 											<td>{{ $mode->id_juego }}</td>
 

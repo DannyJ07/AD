@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     Game
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombre</th>
 										<th>Reglas</th>
 										<th>Aula</th>
@@ -49,7 +49,7 @@
                                     @foreach ($games as $game)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $game->nombre }}</td>
 											<td>{{ $game->reglas }}</td>
 											<td>{{ $game->aula }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('template_title')
     Inscriptionsin
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Fecha</th>
 										<th>Tipo Pag</th>
 										<th>Doc Pago</th>
@@ -50,7 +50,7 @@
                                     @foreach ($inscriptionsins as $inscriptionsin)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $inscriptionsin->fecha }}</td>
 											<td>{{ $inscriptionsin->tipo_pag }}</td>
 											<td>{{ $inscriptionsin->doc_pago }}</td>

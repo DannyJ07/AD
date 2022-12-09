@@ -16,12 +16,34 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/calendario', function () {
+    return view('navbar/calendar');
+});
+Route::get('/contactos', function () {
+    return view('navbar/contact');
+});
+Route::get('/juegos', function () {
+    return view('navbar/games');
+});
+Route::get('/noticias', function () {
+    return view('navbar/notices');
+});
+Route::get('/posiciones', function () {
+    return view('navbar/position');
+});
+Route::get('/normativas', function () {
+    return view('navbar/normativa');
+});
+Route::get('/patrocinadores', function () {
+    return view('navbar/patrocinadores');
+});
+
 
 Auth::routes();
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dash',function () {
     return view('dash.index');
-    
+
 })->name('dash');
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
