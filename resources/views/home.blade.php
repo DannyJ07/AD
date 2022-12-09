@@ -57,7 +57,17 @@ foreach ($juegos as $juego) {
     ->orderBy('inscriptionsgrs.id', 'desc')
     ->get();
     // Obtener la longitud de la colección
+    $countInscriptionsGrup = array();
 
+    foreach($juegosG as $juego){
+        $count = 0;
+        foreach($inscriptionsgrs as $inscriptionsgr){
+            if($inscriptionsgr->id_juego == $juego->id){
+                $count++;
+            }
+        }
+        array_push($countInscriptionsGrup, $count);
+    }
     // Obtener juegos con inscripciones individuales y grupales
 
     ?>
@@ -118,7 +128,17 @@ foreach ($juegos as $juego) {
                     </div>
                 </div>
             </div>
-            <div class="col-6 mt-4">
+
+        <div class="col-6 mt-4">
+        <h1 class="text-center fs-5">Inscripciones Individuales</h1>
+        <canvas id="myChart" height="100px"></canvas>
+        </div>
+
+        <div class="col-6 mt-4">
+        <h1 class="text-center fs-5">Inscripciones Grupales</h1>
+        <canvas id="myChart2" height="100px"></canvas>
+        </div>
+        <div class="col-12 mt-4">
             <h1 class="text-center fs-5">Ultimos Juegos Registrados</h1>
             <table class="table table-dark table-striped">
                 <thead>
@@ -141,11 +161,8 @@ foreach ($juegos as $juego) {
                 </tbody>
             </table>
         </div>
-        <div class="col-6 mt-4">
-        <h1 class="text-center fs-5">Inscripciones Individuales</h1>
-        <canvas id="myChart" height="100px"></canvas>
         </div>
-        </div>
+
 
         <script type="text/javascript">
 
@@ -171,6 +188,29 @@ foreach ($juegos as $juego) {
   const myChart = new Chart(
     document.getElementById('myChart'),
     config
+  );
+  var labels =  {{ Js::from($labels) }};
+  var inscripciones_gr =  {{ Js::from($countInscriptionsGrup) }};
+
+  const data1 = {
+    labels: labels,
+    datasets: [{
+      label: 'My First dataset',
+      backgroundColor: 'rgb(0, 99, 132)',
+      borderColor: 'rgb(255, 99, 132)',
+      data: inscripciones_gr,
+    }]
+  };
+
+  const config1 = {
+    type: 'bar',
+    data: data1,
+    options: {}
+  };
+
+  const myChart1 = new Chart(
+    document.getElementById('myChart2'),
+    config1
   );
 
 </script>
