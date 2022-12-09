@@ -1,33 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Validar si ha iniciado sesion y colocar un navbar dependiendo si lo ha hecho-->
+@if (Auth::check())
+    @include('adminlte::page')
+@else
+    @include('navbar.app')
+@endif
 
-        <title>GamerFest</title>
+@section('title', 'Calendario')
+@section('content_header')
+    <h1>Calendario</h1>
+@stop
 
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+@section('content')
 
-        <!-- Styles -->
-        @vite(['resources/js/app.js', 'resources/sass/app.scss'])
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */body {
-
-            }
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-</head>
-<body>
-        <div>
-            <h2 class="text-center fs-2">
-                Calendario
-            </h2>
-        </div>
-</body>
-</html>
+    <p>Welcome to this beautiful admin panel.</p>
+@stop

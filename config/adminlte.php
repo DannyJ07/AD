@@ -291,20 +291,44 @@ return [
 
     'menu' => [
         // Navbar items:
-        [
-            'type'         => 'navbar-search',
-            'text'         => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
 
         // Sidebar items
+        [
+            'text'=>'Calendario',
+            'url'=>'/calendario',
+            'topnav'=>true
+        ],
+        [
+            'text'=>'Contactos',
+            'url'=>'/contactos',
+            'topnav'=>true
+        ],
+        [
+            'text' => 'Juegos',
+            'url'  => '/games',
+            'topnav'=>true
+        ],
+        [
+            'text'=>'Noticias',
+            'url'=>'/noticias',
+            'topnav'=>true
+        ],
+        [
+            'text' => 'Posiciones',
+            'url'  => '/posiciones',
+            'topnav'=>true
+        ],
+        [
+            'text' => 'Normativas',
+            'url'  => '/normativas',
+            'topnav'=>true
+        ],
+        [
+            'text' => 'Patrocinadores',
+            'url'  => '/patrocinadores',
+            'topnav'=>true
+        ],
 
-        //HEAD
-        
         [
             'text'        => 'Participantes',
             'url'         => '/participants',
